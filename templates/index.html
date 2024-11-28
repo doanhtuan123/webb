@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm bài viết</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">DEEPB</div>
+
+        <div class="search">
+            <form action="/search" method="get">
+                <input type="text" name="filename" placeholder="Tìm kiếm theo tên file..." required>
+                <button type="submit">Tìm</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+<!-- Main Content -->
+<main>
+    <!-- Featured Section -->
+    <section class="featured">
+        <div class="featured-item">
+            <!-- Khu vực ảnh -->
+            <div class="image-content">
+                <img src="https://i.ex-cdn.com/chatluongvacuocsong.vn/files/content/2024/04/05/lao-4-1504.jpg" 
+                     class="article-img" alt="Image">
+                <!-- Khu vực chữ đè lên ảnh -->
+                <div class="text-content">
+                    <a href="https://chatluongvacuocsong.vn/quoc-gia-dong-nam-a-duy-nhat-co-hang-nghin-dao-lon-nho-nhung-khong-giap-bien-so-huu-thac-nuoc-lon-nhat-khu-vuc-d119715.html" 
+                       target="_blank" style="text-decoration: none; color: inherit;">
+                       Quốc gia Đông Nam Á duy nhất có hàng nghìn đảo lớn nhỏ nhưng không giáp biển
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <h2>Tin Tức Mới</h2>
+        <div class="news-grid">
+            {% for item in data[1:5] %}
+                <div class="news-item">
+                    <!-- Bọc ảnh và chữ trong thẻ <a> -->
+                    <a href="{{ item['link'] }}" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="image-content">
+                            <img src="{{ item['image'] }}" class="article-img">
+                        </div>
+                        <div class="text-content">
+                            <p>{{ item['title'].split('.')[0] }}.</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p></p>
+    </footer>
+</body>
+</html>

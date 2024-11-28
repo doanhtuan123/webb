@@ -1,0 +1,194 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cấu trúc trang */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 0 20px; 
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header .search {
+    margin-top: 10px;
+}
+
+header input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    max-width: 600px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+header button {
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+header button:hover {
+    background-color: #ddd;
+}
+
+/* Phần chính */
+main {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Phần Featured */
+.featured {
+    margin-bottom: 20px;
+}
+
+.featured-item {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+    margin-top: 20px;
+}
+
+
+.featured .image-content {
+    position: sticky; /* Giữ phần ảnh khi cuộn trang */
+    top: 0; /* Giữ ảnh ở phần trên cùng của trang */
+    z-index: 5; /* Đảm bảo ảnh hiển thị trên các phần tử khác */
+    width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng */
+    height: 400px; /* Đặt chiều cao cho ảnh */
+}
+
+.featured .article-img {
+    width: 100%;
+    height: 100%; /* Đảm bảo ảnh chiếm hết chiều cao của phần tử */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo, giữ tỉ lệ */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured .article-img:hover {
+    transform: scale(1.05); /* Tạo hiệu ứng phóng to khi hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.featured .text-content {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Phần News */
+.news {
+    margin-top: 40px;
+}
+
+.news h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cột cho màn hình rộng */
+    gap: 20px;
+}
+
+.news .news-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.news .news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.news .image-content {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Chỉnh chiều cao cố định */
+    overflow: hidden;
+    display: flex; /* Căn giữa nội dung ảnh */
+    justify-content: center;
+    align-items: center;
+}
+
+.news .article-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.news .text-content {
+    margin-top: 10px; /* Tạo khoảng cách giữa ảnh và văn bản */
+}
+
+.news .text-content p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    word-break: break-word;
+    text-align: justify;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+    header input[type="text"] {
+        width: 100%;
+    }
+
+    .featured-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .text-content {
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Tự động điều chỉnh cho màn hình nhỏ */
+    }
+}
