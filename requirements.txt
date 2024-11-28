@@ -1,2 +1,4 @@
 ﻿Flask==3.0.3
 gunicorn==20.1.0
+python-dotenv
+opensearch-py
